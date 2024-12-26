@@ -36,7 +36,7 @@ const DialogCloseButton: React.FC<FormProps> = ({
   const [body, setBody] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
-  const MAX_TITLE_LENGTH = 30;
+  const MAX_TITLE_LENGTH = 20;
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -46,8 +46,9 @@ const DialogCloseButton: React.FC<FormProps> = ({
       toast({
         description: "Title characters exceed the limit!",
         variant: "destructive",
+        className: "font-bold",
       });
-      // return; prevent updating the store
+      return; // prevent updating the store - stop typing when reaching the limit
     }
 
     setTitle(inputValue); // update state if within limit
@@ -70,7 +71,7 @@ const DialogCloseButton: React.FC<FormProps> = ({
       toast({
         description: "Your note has been sent!",
         className:
-          "bg-pink-300 text-black text-xl font-semibold border-2 border-black",
+          "bg-pink-400/90 text-white text-xl font-semibold border-2 border-black",
       });
 
       // Close dialog
@@ -93,14 +94,18 @@ const DialogCloseButton: React.FC<FormProps> = ({
           <DialogDescription>Write down what you think.</DialogDescription>
         </DialogHeader>
         <div className="flex flex-col items-center space-y-2 w-full">
-          {/* <Input>Judul</Input> */}
-          <Input
-            type="text"
-            placeholder="Enter title here..."
-            value={title}
-            onChange={handleTitleChange}
-            className="border rounded p-2 w-full"
-          />
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              placeholder="Enter title here..."
+              value={title}
+              onChange={handleTitleChange}
+              className="border rounded p-2 w-full"
+            />
+            <p className="text-sm text-gray-500">
+              {title.length}/{MAX_TITLE_LENGTH} characters
+            </p>
+          </div>
           <textarea
             placeholder="Enter note here..."
             value={body}

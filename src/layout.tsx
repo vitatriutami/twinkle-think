@@ -27,7 +27,9 @@ const Layout: React.FC<LayoutProps> = ({
             placeholder="Search notes..."
             className="p-2 border-2 border-black flex items-center justify-center w-[200px] rounded-full"
           />
-          <div>akun - logout</div>
+          <div>
+            <span>👤</span>
+          </div>
         </nav>
         <div className="flex flex-col space-y-6 items-center justify-center p-10">
           {children}

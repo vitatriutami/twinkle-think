@@ -100,8 +100,13 @@ function App() {
   return (
     <SidebarProvider>
       <Layout searchText={searchText} setSearchText={setSearchText}>
-        <h1 className="text-4xl font-bold text-pink-500">Welcome to the App</h1>
-        <p>This is your main content area.</p>
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-pink-500">
+            Welcome to{" "}
+            <span className="font-ballet font-bold text-5xl">TwinkleThink</span>
+          </h1>
+          <p>A place to store and explore everything you're thinking.</p>
+        </div>
         <div className="fixed bottom-10 right-10">
           <DialogCloseButton
             currentNotes={currentNotes}
