@@ -71,7 +71,7 @@ const DialogCloseButton: React.FC<FormProps> = ({
       toast({
         description: "Your note has been sent!",
         className:
-          "bg-pink-400/90 text-white text-xl font-semibold border-2 border-black",
+          "bg-amber-300/90 text-black text-xl font-semibold border-2 border-black",
       });
 
       // Close dialog
