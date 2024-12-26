@@ -102,9 +102,9 @@ function App() {
     <SidebarProvider>
       <Layout searchText={searchText} setSearchText={setSearchText}>
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-pink-500">
+          <h1 className="text-2xl md:text-4xl font-bold text-pink-500">
             Welcome to{" "}
-            <span className="font-ballet font-bold text-5xl">TwinkleThink</span>
+            <span className="font-ballet font-bold text:3xl md:text-5xl">TwinkleThink</span>
           </h1>
           <p>A place to store and explore everything you're thinking.</p>
         </div>
