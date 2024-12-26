@@ -115,7 +115,9 @@ function App() {
           />
         </div>
         <section>
-          <h2 className="text-2xl font-bold mb-4 text-start">Active Notes</h2>
+          <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
+            Active Notes
+          </h2>
 
           {filteredActiveNotes.length === 0 ? (
             <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
@@ -172,7 +174,9 @@ function App() {
           )}
         </section>
         <section className="mt-8">
-          <h2 className="text-2xl font-bold mb-4 text-start">Archived Notes</h2>
+          <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
+            Archived Notes
+          </h2>
           {filteredArchivedNotes.length === 0 ? (
             <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
               No notes to display
