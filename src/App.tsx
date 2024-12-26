@@ -3,6 +3,7 @@ import Layout from "./layout";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import DialogCloseButton from "./components/dialog-close-button";
 import { getInitialData, showFormattedDate } from "./utils";
+import { useToast } from "./hooks/use-toast";
 
 type Note = {
   id: number;
@@ -70,10 +71,17 @@ function App() {
   const [notes, setNotes] = useState<Note[]>(getInitialData());
   const [currentNotes, setCurrentNotes] = useState<Note[]>([]);
   const [searchText, setSearchText] = useState("");
+  const { toast } = useToast();
 
   const handleDeleteNote = (id: number) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
     setCurrentNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+    // Show toast notification
+    toast({
+      description: "Your note has been deleted!",
+      className:
+        "bg-pink-400/90 text-white text-xl font-semibold border-2 border-black",
+    });
   };
 
   const handleArchiveToggle = (id: number) => {
