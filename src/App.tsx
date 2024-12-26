@@ -125,7 +125,7 @@ function App() {
           />
         </div>
         <section className="w-full pt-8">
-          <div className="w-fit mx-auto relative group pointer-events-none">
+          <div className="w-fit mx-auto relative group">
             <h2 className="text-2xl font-bold mb-4 tracking-wide">
               Active Notes
               <div className="title-line" />
@@ -187,7 +187,7 @@ function App() {
           )}
         </section>
         <section className="pt-8 w-full">
-          <div className="w-fit mx-auto relative group pointer-events-none">
+          <div className="w-fit mx-auto relative group">
             <h2 className="text-2xl font-bold mb-4 tracking-wide">
               Archived Notes
               <div className="title-line" />
