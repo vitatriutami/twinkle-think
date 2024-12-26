@@ -19,7 +19,7 @@ const MynauiTrash = () => (
     height="24"
     viewBox="0 0 24 24"
     fill="currentColor"
-    className="h-5 w-5 text-black hover:text-slate-800"
+    className="h-5 w-5 text-black"
   >
     <g
       fill="none"
@@ -41,7 +41,7 @@ const MynauiArchive = () => (
     height="24"
     viewBox="0 0 24 24"
     fill="currentColor"
-    className="h-5 w-5 text-black hover:text-slate-700"
+    className="h-5 w-5 text-black"
   >
     <path
       fill="currentColor"
