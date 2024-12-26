@@ -116,7 +116,7 @@ function App() {
             setCurrentNotes={setCurrentNotes}
           />
         </div>
-        <section className="w-full">
+        <section className="w-full pt-8">
           <div className="w-fit mx-auto relative group">
             <h2 className="text-2xl font-bold mb-4 tracking-wide">
               Active Notes
@@ -178,7 +178,7 @@ function App() {
             </div>
           )}
         </section>
-        <section className="mt-10 w-full">
+        <section className="pt-8 w-full">
           <div className="w-fit mx-auto relative group">
             <h2 className="text-2xl font-bold mb-4 tracking-wide">
               Archived Notes
