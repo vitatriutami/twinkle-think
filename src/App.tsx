@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "./layout";
-import { SidebarProvider } from "@/components/ui/sidebar"; 
+import { SidebarProvider } from "@/components/ui/sidebar";
 import DialogCloseButton from "./components/dialog-close-button";
 import { getInitialData, showFormattedDate } from "./utils";
 
@@ -95,6 +95,9 @@ function App() {
       note.body.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  const filteredActiveNotes = filteredNotes.filter((note) => !note.archived);
+  const filteredArchivedNotes = filteredNotes.filter((note) => note.archived);
+
   return (
     <SidebarProvider>
       <Layout searchText={searchText} setSearchText={setSearchText}>
@@ -112,107 +115,103 @@ function App() {
           />
         </div>
         <section>
-          <h2 className="text-2xl font-bold mb-4">Archived Notes</h2>
+          <h2 className="text-2xl font-bold mb-4 text-start">Active Notes</h2>
 
-          {filteredNotes.length === 0 ? (
+          {filteredActiveNotes.length === 0 ? (
             <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
               No notes to display
             </p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredNotes
-                .filter((note) => !note.archived)
-                .map((note) => (
-                  <div
-                    key={note.id}
-                    className={`border border-gray-200 rounded-lg p-4 shadow-md ${
-                      note.archived ? "bg-neutral-100" : "bg-white"
-                    } flex flex-col justify-between`}
-                  >
-                    <div className="flex-row-reverse justify-between items-center py-2">
-                      {note.archived && (
-                        <span className="px-3 py-1 text-xs font-bold text-red-800 rounded-full bg-red-100">
-                          Archived!
-                        </span>
-                      )}
-                      <div className="flex gap-1 justify-end">
-                        <button
-                          onClick={() => handleArchiveToggle(note.id)}
-                          className={`p-1 border rounded-full flex justify-center items-center ${
-                            note.archived
-                              ? "bg-amber-300 hover:bg-amber-200"
-                              : "bg-gray-300 hover:bg-gray-200"
-                          }`}
-                          title={note.archived ? "Undo archive" : "Archive"}
-                        >
-                          {note.archived ? (
-                            <MynauiUndoArchive />
-                          ) : (
-                            <MynauiArchive />
-                          )}
-                        </button>
-                        <button
-                          onClick={() => handleDeleteNote(note.id)}
-                          className="bg-pink-400 hover:bg-pink-300 p-1 border rounded-full flex justify-center items-center"
-                          title="Delete note"
-                        >
-                          <MynauiTrash />
-                        </button>
-                      </div>
+              {filteredActiveNotes.map((note) => (
+                <div
+                  key={note.id}
+                  className={`border border-gray-200 rounded-lg p-4 shadow-md ${
+                    note.archived ? "bg-neutral-100" : "bg-white"
+                  } flex flex-col justify-between`}
+                >
+                  <div className="flex-row-reverse justify-between items-center py-2">
+                    {note.archived && (
+                      <span className="px-3 py-1 text-xs font-bold text-red-800 rounded-full bg-red-100">
+                        Archived!
+                      </span>
+                    )}
+                    <div className="flex gap-1 justify-end">
+                      <button
+                        onClick={() => handleArchiveToggle(note.id)}
+                        className={`p-1 border rounded-full flex justify-center items-center ${
+                          note.archived
+                            ? "bg-amber-300 hover:bg-amber-200"
+                            : "bg-gray-300 hover:bg-gray-200"
+                        }`}
+                        title={note.archived ? "Undo archive" : "Archive"}
+                      >
+                        {note.archived ? (
+                          <MynauiUndoArchive />
+                        ) : (
+                          <MynauiArchive />
+                        )}
+                      </button>
+                      <button
+                        onClick={() => handleDeleteNote(note.id)}
+                        className="bg-pink-400 hover:bg-pink-300 p-1 border rounded-full flex justify-center items-center"
+                        title="Delete note"
+                      >
+                        <MynauiTrash />
+                      </button>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{note.title}</h3>
-                    <p className="text-gray-700 mb-4">{note.body}</p>
-                    <p className="text-sm text-gray-500">
-                      {showFormattedDate(note.createdAt)}
-                    </p>
                   </div>
-                ))}
+                  <h3 className="text-xl font-semibold mb-2">{note.title}</h3>
+                  <p className="text-gray-700 mb-4">{note.body}</p>
+                  <p className="text-sm text-gray-500">
+                    {showFormattedDate(note.createdAt)}
+                  </p>
+                </div>
+              ))}
             </div>
           )}
         </section>
         <section className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Archived Notes</h2>
-          {filteredNotes.length === 0 ? (
+          <h2 className="text-2xl font-bold mb-4 text-start">Archived Notes</h2>
+          {filteredArchivedNotes.length === 0 ? (
             <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
               No notes to display
             </p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredNotes
-                .filter((note) => note.archived)
-                .map((note) => (
-                  <div
-                    key={note.id}
-                    className={`border border-gray-200 rounded-lg p-4 shadow-md bg-neutral-100 flex flex-col justify-between`}
-                  >
-                    <div className="flex-row-reverse justify-between items-center py-2">
-                      <span className="px-3 py-1 text-xs font-bold text-red-800 rounded-full bg-red-100">
-                        Archived!
-                      </span>
-                      <div className="flex gap-1 justify-end">
-                        <button
-                          onClick={() => handleArchiveToggle(note.id)}
-                          className="p-1 border rounded-full flex justify-center items-center bg-amber-300 hover:bg-amber-200"
-                          title="Undo archive"
-                        >
-                          <MynauiUndoArchive />
-                        </button>
-                        <button
-                          onClick={() => handleDeleteNote(note.id)}
-                          className="bg-pink-400 hover:bg-pink-300 p-1 border rounded-full flex justify-center items-center"
-                          title="Delete note"
-                        >
-                          <MynauiTrash />
-                        </button>
-                      </div>
+              {filteredArchivedNotes.map((note) => (
+                <div
+                  key={note.id}
+                  className={`border border-gray-200 rounded-lg p-4 shadow-md bg-neutral-100 flex flex-col justify-between`}
+                >
+                  <div className="flex-row-reverse justify-between items-center py-2">
+                    <span className="px-3 py-1 text-xs font-bold text-red-800 rounded-full bg-red-100">
+                      Archived!
+                    </span>
+                    <div className="flex gap-1 justify-end">
+                      <button
+                        onClick={() => handleArchiveToggle(note.id)}
+                        className="p-1 border rounded-full flex justify-center items-center bg-amber-300 hover:bg-amber-200"
+                        title="Undo archive"
+                      >
+                        <MynauiUndoArchive />
+                      </button>
+                      <button
+                        onClick={() => handleDeleteNote(note.id)}
+                        className="bg-pink-400 hover:bg-pink-300 p-1 border rounded-full flex justify-center items-center"
+                        title="Delete note"
+                      >
+                        <MynauiTrash />
+                      </button>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{note.title}</h3>
-                    <p className="text-gray-700 mb-4">{note.body}</p>
-                    <p className="text-sm text-gray-500">
-                      {showFormattedDate(note.createdAt)}
-                    </p>
                   </div>
-                ))}
+                  <h3 className="text-xl font-semibold mb-2">{note.title}</h3>
+                  <p className="text-gray-700 mb-4">{note.body}</p>
+                  <p className="text-sm text-gray-500">
+                    {showFormattedDate(note.createdAt)}
+                  </p>
+                </div>
+              ))}
             </div>
           )}
         </section>
