@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Layout from "./layout";
-import { SidebarProvider } from "@/components/ui/sidebar"; // Import SidebarProvider
-// import { Button } from "./components/ui/button";
+import { SidebarProvider } from "@/components/ui/sidebar"; 
 import DialogCloseButton from "./components/dialog-close-button";
 import { getInitialData, showFormattedDate } from "./utils";
-// import MynauiTrashSolid from "@/assets/trash.svg";
 
 type Note = {
   id: number;
