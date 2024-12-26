@@ -117,10 +117,12 @@ function App() {
           />
         </div>
         <section className="w-full">
-          <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
-            Active Notes
-            <div className="title-line" />
-          </h2>
+          <div className="w-fit mx-auto relative group">
+            <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
+              Active Notes
+              <div className="title-line" />
+            </h2>
+          </div>
 
           {filteredActiveNotes.length === 0 ? (
             <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
@@ -177,10 +179,12 @@ function App() {
           )}
         </section>
         <section className="mt-10 w-full">
-          <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
-            Archived Notes
-            <div className="title-line" />
-          </h2>
+          <div className="w-fit mx-auto relative group">
+            <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
+              Archived Notes
+              <div className="title-line" />
+            </h2>
+          </div>
           {filteredArchivedNotes.length === 0 ? (
             <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
               No notes to display
