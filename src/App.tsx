@@ -114,7 +114,7 @@ function App() {
             setCurrentNotes={setCurrentNotes}
           />
         </div>
-        <section>
+        <section className="w-full">
           <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
             Active Notes
           </h2>
@@ -173,7 +173,7 @@ function App() {
             </div>
           )}
         </section>
-        <section className="mt-8">
+        <section className="mt-10 w-full">
           <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
             Archived Notes
           </h2>
