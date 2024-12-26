@@ -133,7 +133,7 @@ function App() {
           </div>
 
           {filteredActiveNotes.length === 0 ? (
-            <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
+            <p className="flex items-center justify-center text-slate-500 text-2xl font-semibold h-[50vh]">
               No notes to display
             </p>
           ) : (
@@ -194,7 +194,7 @@ function App() {
             </h2>
           </div>
           {filteredArchivedNotes.length === 0 ? (
-            <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">
+            <p className="flex items-center justify-center text-slate-500 text-2xl font-semibold h-[50vh]">
               No notes to display
             </p>
           ) : (
