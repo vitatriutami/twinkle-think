@@ -104,7 +104,9 @@ function App() {
         <div className="text-center">
           <h1 className="text-2xl md:text-4xl font-bold text-pink-500">
             Welcome to{" "}
-            <span className="font-ballet font-bold text:3xl md:text-5xl">TwinkleThink</span>
+            <span className="font-ballet font-bold text:3xl md:text-5xl">
+              TwinkleThink
+            </span>
           </h1>
           <p>A place to store and explore everything you're thinking.</p>
         </div>
@@ -117,6 +119,7 @@ function App() {
         <section className="w-full">
           <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
             Active Notes
+            <div className="title-line" />
           </h2>
 
           {filteredActiveNotes.length === 0 ? (
@@ -176,6 +179,7 @@ function App() {
         <section className="mt-10 w-full">
           <h2 className="text-2xl font-bold mb-4 flex w-full justify-start tracking-wide">
             Archived Notes
+            <div className="title-line" />
           </h2>
           {filteredArchivedNotes.length === 0 ? (
             <p className="flex items-center justify-center text-2xl font-semibold h-[50vh]">

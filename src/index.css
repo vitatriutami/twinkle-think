@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .title-line {
+    @apply absolute w-full h-0.5 bg-pink-500/80 scale-x-0 group-hover:scale-x-100 transition-transform;
+  }
+}
+
 /* ... */
 
 @layer base {
