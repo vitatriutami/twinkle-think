@@ -39,20 +39,18 @@ const DialogCloseButton: React.FC<FormProps> = ({
   const MAX_TITLE_LENGTH = 20;
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-
-    if (inputValue.length > MAX_TITLE_LENGTH) {
-      // Show toast notification
+    const inputValue = e.target.value.slice(0, MAX_TITLE_LENGTH); // Limit to MAX_TITLE_LENGTH
+    if (e.target.value.length > MAX_TITLE_LENGTH) {
+      // Show toast notification when input exceeds the limit
       toast({
         description: "Title characters exceed the limit!",
         variant: "destructive",
         className: "font-bold",
       });
-      return; // prevent updating the store - stop typing when reaching the limit
     }
-
-    setTitle(inputValue); // update state if within limit
+    setTitle(inputValue); // Update the state with the trimmed input
   };
+
 
   const handleAddNote = () => {
     if (title && body) {
@@ -88,10 +86,14 @@ const DialogCloseButton: React.FC<FormProps> = ({
           Add Note
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md bg-amber-100">
         <DialogHeader>
-          <DialogTitle>Add a New Note</DialogTitle>
-          <DialogDescription>Write down what you think.</DialogDescription>
+          <DialogTitle className="text-pink-500 text-center">
+            Add a New Note
+          </DialogTitle>
+          <DialogDescription className="text-center">
+            Write down what&apos;s on your mind
+          </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col items-center space-y-2 w-full">
           <div className="flex flex-col w-full">
@@ -100,7 +102,7 @@ const DialogCloseButton: React.FC<FormProps> = ({
               placeholder="Enter title here..."
               value={title}
               onChange={handleTitleChange}
-              className="border rounded p-2 w-full"
+              className="border rounded p-2 w-full bg-white"
             />
             <p className="text-sm text-gray-500">
               {title.length}/{MAX_TITLE_LENGTH} characters
@@ -132,7 +134,7 @@ const DialogCloseButton: React.FC<FormProps> = ({
         </div>
         <DialogFooter className="sm:justify-end flex gap-2">
           <DialogClose asChild>
-            <Button type="button" variant="outline">
+            <Button type="button" variant="outline" className="bg-neutral-50">
               Close
             </Button>
           </DialogClose>

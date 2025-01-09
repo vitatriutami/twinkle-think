@@ -225,9 +225,11 @@ function App() {
                       </button>
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{note.title}</h3>
-                  <p className="text-gray-700 mb-4">{note.body}</p>
-                  <p className="text-sm text-gray-500">
+                  <h3 className="text-xl font-semibold mb-2 select-none">
+                    {note.title}
+                  </h3>
+                  <p className="text-gray-700 mb-4 select-none">{note.body}</p>
+                  <p className="text-sm text-gray-500 select-none">
                     {showFormattedDate(note.createdAt)}
                   </p>
                 </div>
