@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = ({
     <SidebarProvider>
       {/* Pass state dan setter ke Sidebar dan Navbar */}
       <AppSidebar />
-      <main className="w-full bg-background">
+      <main className="w-full bg-amber-50">
         <Navbar
           searchText={searchText}
           setSearchText={setSearchText}
