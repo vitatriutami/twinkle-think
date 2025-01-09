@@ -8,7 +8,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-} from "@/components/ui/sidebar"; // Pastikan sesuai alias path
+} from "@/components/ui/sidebar";
 
 // Data sidebar menu
 const items = [

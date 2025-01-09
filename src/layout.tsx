@@ -1,7 +1,8 @@
 import AppSidebar from "@/components/app-sidebar";
-import { SidebarProvider } from "@/components/ui/sidebar"; // Import SidebarProvider
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/navbar";
+// import { useState } from "react";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -14,11 +15,18 @@ const Layout: React.FC<LayoutProps> = ({
   searchText,
   setSearchText,
 }) => {
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State untuk Sidebar
+
   return (
     <SidebarProvider>
+      {/* Pass state dan setter ke Sidebar dan Navbar */}
       <AppSidebar />
-      <main className="w-full bg-amber-50">
-        <Navbar searchText={searchText} setSearchText={setSearchText} />
+      <main className="w-full bg-background">
+        <Navbar
+          searchText={searchText}
+          setSearchText={setSearchText}
+          // toggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
+        />
         <div className="flex flex-col space-y-6 items-center justify-center p-10">
           {children}
         </div>
