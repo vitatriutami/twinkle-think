@@ -81,7 +81,7 @@ const DialogCloseButton: React.FC<FormProps> = ({
       <DialogTrigger asChild>
         <Button
           variant="destructive"
-          className="p-6 font-bold border-2 border-black text-2xl rounded-full bg-pink-500 text-yellow-200 hover:bg-yellow-200 hover:text-pink-500"
+          className="z-50 p-6 font-bold border-2 border-black text-2xl rounded-full bg-pink-500 text-yellow-200 hover:bg-yellow-200 hover:text-pink-500"
         >
           Add Note
         </Button>
