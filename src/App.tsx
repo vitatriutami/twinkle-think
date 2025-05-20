@@ -126,7 +126,7 @@ function App() {
         </div>
         <section className="w-full pt-8">
           <div className="w-fit mx-auto relative group">
-            <h2 className="text-2xl font-bold mb-4 tracking-wide">
+            <h2 className="text-2xl font-bold mb-4 tracking-wide -z-10">
               Active Notes
               <div className="title-line" />
             </h2>
@@ -188,7 +188,7 @@ function App() {
         </section>
         <section className="pt-8 w-full">
           <div className="w-fit mx-auto relative group">
-            <h2 className="text-2xl font-bold mb-4 tracking-wide">
+            <h2 className="text-2xl font-bold mb-4 tracking-wide -z-10">
               Archived Notes
               <div className="title-line" />
             </h2>
